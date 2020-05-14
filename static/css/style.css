@@ -1,7 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&family=Tangerine:wght@400;700&display=swap');
-
 body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+nav{
+    background-color: #9e9d24;
+}
+nav ul li a{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+a.brand-logo{
+    font-family: 'Tangerine', cursive;
+    font-size: 3.2rem;
+    font-weight: bold;
+    text-shadow: 3px 5px 2px #474747;
+}
+.sidenav li a:hover{
+    background-color: #f0f4c3!important;
 }

@@ -10,6 +10,33 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 </head>
 <body>
+     <header>
+        <nav>
+            <div class="nav-wrapper">
+            <a href="{{url_for('index')}}" class="brand-logo center pink-text text-darken-4">My Cookbook</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons pink-text text-darken-4">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a class="pink-text text-darken-4" href="#">New Recipe</a></li>
+            </ul>
+            <ul class="left hide-on-med-and-down">
+                <li><a class="pink-text text-darken-4" href="{{url_for('index')}}">Home</a></li>
+                <li><a class="pink-text text-darken-4" href="#">All Recipes</a></li>
+            </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav lime lighten-5" id="mobile-demo">
+            <li><a class="pink-text text-darken-4" href="#">All Recipes</a></li>
+            <li><a class="pink-text text-darken-4" href="#">Chicken</a></li>
+            <li><a class="pink-text text-darken-4" href="#">Beef</a></li>
+            <li><a class="pink-text text-darken-4" href="#">Lamb</a></li>
+            <li><a class="pink-text text-darken-4" href="#">Fish</a></li>
+            <li><a class="pink-text text-darken-4" href="#">Pasta</a></li>
+            <li><a class="pink-text text-darken-4" href="#">Vegetables</a></li>
+            <li class="divider"></li>
+            <li><a class="lime-text text-darken-3" href="#">Add Recipe</a></li>
+        </ul>
+    </header>
 
     <div class="container">
     {% block content %}
@@ -19,5 +46,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+        })
+
+    </script>
 </body>
 </html>
