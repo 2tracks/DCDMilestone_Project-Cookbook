@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&family=Tangerine:wght@400;700&display=swap');
+
 body{
+    height: 100vh;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
 }
+
+/* Navigation */
+
 nav{
     background-color: #9e9d24;
 }
@@ -14,10 +20,77 @@ nav ul li a{
 }
 a.brand-logo{
     font-family: 'Tangerine', cursive;
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-weight: bold;
     text-shadow: 3px 5px 2px #474747;
 }
 .sidenav li a:hover{
     background-color: #f0f4c3!important;
+}
+
+/* Footer */
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.footer-text{
+    margin: 1rem;
+}
+h4{
+    font-family: 'Tangerine', cursive;
+    font-weight: bold;
+}
+.social-icons{
+    margin-bottom: 1rem;
+}
+.fa-pinterest-square:before {
+    content: "\f0d3";
+    font-size: 2.5rem;
+    margin-left: 0.5rem;
+    text-shadow: 1px 1px #827717;
+}
+.fa-twitter-square:before {
+    content: "\f081";
+    font-size: 2.5rem;
+    margin-left: 0.5rem;
+    text-shadow: 1px 1px #827717;
+}
+.fa-instagram-square:before {
+    content: "\f955";
+    font-size: 2.5rem;
+    margin-left: 0.5rem;
+    text-shadow: 1px 1px #827717;
+}
+.fa-facebook-square:before {
+    content: "\f082";
+    font-size: 2.5rem;
+    text-shadow: 1px 1px #827717;
+}
+.copyright{
+    font-size: 0.75rem;
+}
+
+/* Media queries */
+
+@media only screen and (min-width: 992px) {
+
+    .footer-text{
+        margin: 1.7rem 1rem 1rem 1rem;
+    }
+    h4{
+        font-size: 2.8rem;
+    }
+    .fa-pinterest-square:before {
+        margin-left: 1rem;
+    }
+    .fa-twitter-square:before {
+        margin-left: 1rem;
+    }
+    .fa-instagram-square:before {
+       margin-left: 1rem;
+    }
+
 }

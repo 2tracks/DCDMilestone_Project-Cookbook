@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Cookbook</title>
+    <script src="https://kit.fontawesome.com/1c5b9f5e33.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
@@ -41,7 +42,29 @@
     <div class="container">
     {% block content %}
     {% endblock %}
+
     </div>
+
+    <footer class="lime darken-3">
+        <div class="row">
+            <div class="col s12 m6">
+                <p class="footer-text lime-text text-lighten-4">My Cookbook is a  Website where you can store your own favourite recipes.
+                 Whenever you fancy to cook something different just go over your best recipes for ideas.</p>
+            </div>
+            <div class="col s12 m6">
+                <h4 class="center text-bold pink-text text-darken-4">Visit My Cookbook on:</h4>
+                <div class="center social-icons">
+                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square lime-text text-lighten-4"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram-square lime-text text-lighten-4"></i></a>
+                    <a href="https://twitter.com/explore" target="_blank"><i class="fab fa-twitter-square lime-text text-lighten-4"></i></a>
+                    <a href="https://www.pinterest.co.uk/" target="_blank"><i class="fab fa-pinterest-square lime-text text-lighten-4"></i></a>
+                </div>
+            </div>
+            <div class="col s12">
+                <p class="copyright center-align pink-text text-darken-4">&copy; Copyright 2020 | Gabriela Di Salvatore-Bosshard</p>
+            </div>
+        </div>
+    </footer>
     
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
