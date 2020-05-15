@@ -13,6 +13,7 @@ body{
 
 nav{
     background-color: #9e9d24;
+    overflow: hidden;
 }
 nav ul li a{
     font-size: 1.5rem;
@@ -27,6 +28,56 @@ a.brand-logo{
 .sidenav li a:hover{
     background-color: #f0f4c3!important;
 }
+
+
+/* Searchbar */
+
+.searchbar{
+    width: 100%; 
+    height: 100px;
+    background: url(/static/img/hero_salad.jpg)no-repeat center;
+    background-size: cover;
+}
+.search{
+    width: 80%;
+    position: relative;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+input[type="text"].searchText{
+    width: 90%;
+    border: 1px solid #827717!important;
+    border-right: none!important;
+    border-radius: 1px 0 0 2px;
+    padding: 10px;
+    height: 20px;
+    outline: none;
+    color: #827717!important;
+    background-color: #f9fbe7;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+}
+input[type="text"].searchText::placeholder{
+    font-family: 'Tangerine', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #827717!important;
+}
+.searchButton{
+    width: 10%;
+    border: 1px solid #827717!important;
+    border-radius: 0 2px 2px 0;
+    height: 42px;
+    outline: none;
+    color: #f9fbe7!important;
+    background-color:  #827717;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+
+
 
 /* Footer */
 
