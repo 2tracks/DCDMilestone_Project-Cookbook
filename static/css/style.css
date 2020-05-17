@@ -173,6 +173,43 @@ h4{
     font-size: 0.75rem;
 }
 
+/* all recipes */
+div.card-title{
+    font-size: 1.5rem;
+    font-weight: 500!important;
+}
+.card-content{
+    width: 100%;
+}
+
+.card-times{
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+}
+.time{
+    padding: 0.5rem;
+}
+.fas.fa-clock{
+    font-size: 24px;
+    padding: 0.5rem;
+}
+.level{
+    padding: 0.5rem;
+}
+.card-times img{
+    width: 20px;
+    margin: 0.5rem;
+}
+.card-allergens{
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+}
+.card-allergens img{
+    width: 20px;
+}
+
 /* Media queries */
 
 @media only screen and (min-width: 992px) {
