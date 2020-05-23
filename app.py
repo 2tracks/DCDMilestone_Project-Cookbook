@@ -27,6 +27,10 @@ def index():
     return render_template("index.html", recipe_info=recipe_info)
 
 
+@app.route('/search_categories/<get_category_name>')
+def search_categories(get_category_name):
+    category = mongo.db.recipe_info.find({'category_name': get_category_name })
+    return render_template('search_categories.html', category = category)
 
 
 if __name__ == '__main__':

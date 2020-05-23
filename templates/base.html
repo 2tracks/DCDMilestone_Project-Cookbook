@@ -29,12 +29,12 @@
         <!-- Mobile side-navigation -->
         <ul class="sidenav lime lighten-5" id="mobile-demo">
             <li><a class="red-text-color" href="{{url_for('index')}}">All Recipes</a></li>
-            <li><a class="red-text-color" href="#">Chicken</a></li>
-            <li><a class="red-text-color" href="#">Beef</a></li>
-            <li><a class="red-text-color" href="#">Lamb</a></li>
-            <li><a class="red-text-color" href="#">Fish</a></li>
-            <li><a class="red-text-color" href="#">Pasta</a></li>
-            <li><a class="red-text-color" href="#">Vegetables</a></li>
+            <li><a class="red-text-color" href="{{url_for('search_categories', get_category_name = 'Chicken')}}">Chicken</a></li>
+            <li><a class="red-text-color" href="{{url_for('search_categories', get_category_name = 'Beef')}}">Beef</a></li>
+            <li><a class="red-text-color" href="{{url_for('search_categories', get_category_name = 'Lamb')}}">Lamb</a></li>
+            <li><a class="red-text-color" href="{{url_for('search_categories', get_category_name = 'Fish')}}">Fish</a></li>
+            <li><a class="red-text-color" href="{{url_for('search_categories', get_category_name = 'Pasta')}}">Pasta</a></li>
+            <li><a class="red-text-color" href="{{url_for('search_categories', get_category_name = 'Vegetables')}}">Vegetables</a></li>
             <li class="divider"></li>
             <li><a class="lime-text text-darken-3" href="#">Add Recipe</a></li>
         </ul>
@@ -58,36 +58,36 @@
                 <div class="col border-bottom"></div>
             </div>
             <div class="row categories-wrapper">
-                <div class="col category-items">
+                <a href="{{url_for('search_categories', get_category_name = 'Chicken')}}" class="col category-items">
                     <!-- Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
                     <img src="{{url_for('static', filename='img/chicken.svg')}}" alt="chicken">
                     <h5 class="lime-text text-darken-4">Chicken</h5>
-                </div>
-                <div class="col category-items">
+                </a>
+                <a href="{{url_for('search_categories', get_category_name = 'Beef')}}" class="col category-items">
                     <!--<div>Icons made by <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
                     <img src="{{url_for('static', filename='img/chop.svg')}}" alt="beef">
                     <h5 class="lime-text text-darken-4">Beef</h5>
-                </div>
-                <div class="col category-items">
+                </a>
+                <a href="{{url_for('search_categories', get_category_name = 'Lamb')}}" class="col category-items">
                     <!--<div>Icons made by <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
                     <img src="{{url_for('static', filename='img/proteins.svg')}}" alt="lamb">
                     <h5 class="lime-text text-darken-4">Lamb</h5>
-                </div>
-                <div class="col category-items">
+                </a>
+                <a href="{{url_for('search_categories', get_category_name = 'Fish')}}" class="col category-items">
                     <!--<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
                     <img src="{{url_for('static', filename='img/animal.svg')}}" alt="fish">
                     <h5 class="lime-text text-darken-4">Fish</h5>
-                </div>
-                <div class="col category-items">
+                </a>
+                <a href="{{url_for('search_categories', get_category_name = 'Pasta')}}" class="col category-items">
                     <!--Icons made by <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
                     <img src="{{url_for('static', filename='img/food-and-restaurant.svg')}}" alt="vegetables">
                     <h5 class="lime-text text-darken-4">Pasta</h5>
-                </div>
-                 <div class="col category-items">
+                </a>
+                 <a href="{{url_for('search_categories', get_category_name = 'Vegetables')}}" class="col category-items">
                     <!--<div>Icons made by <a href="https://www.flaticon.com/authors/surang" title="surang">surang</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
                     <img src="{{url_for('static', filename='img/food.svg')}}" alt="paste">
                     <h5 class="lime-text text-darken-4">Vegetables</h5>
-                </div>
+                </a>
             </div>
         </div>
 
