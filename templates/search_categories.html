@@ -5,4 +5,58 @@
 {% endblock title%}
 
 {% block content %}
-{% endblock content %}
+    
+    <div class="row">
+        {% for recipe in category %}
+        <div class="col s12 m6 l4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{recipe.recipe_img}}" alt="food"> 
+                </div>
+                <div class="card-title lime-text text-darken-4">{{recipe.recipe_name}}</div>
+                <div class="card-content">
+                    <div class="card-times">
+                        <div class="time">
+                            <i class="fas fa-clock"></i>
+                            <div class="time">{{recipe.recipe_time}}</div>                
+                        </div>
+                        <div class="level">
+                            <img class="img-hat" src="{{url_for('static', filename='img/hat.png')}}" alt="hat">
+                            <div class="level">{{recipe.recipe_level}}</div>                
+                        </div>
+                    </div>
+                    
+                    <div class="card-allergens">
+                    {% for item in recipe.allergen_type %}
+                        {% if item == 'Gluten-free' %}
+                        <div class="card-allergens-item">
+                            <img src="{{url_for('static', filename='img/gluten-free.png')}}" alt="image gluten-free">
+                            <div class="gluten-free">{{item}}</div>
+                        </div>
+                        {% elif item == 'Lactose-free' %}
+                        <div class="card-allergens-item">
+                            <img src="{{url_for('static', filename='img/diet.png')}}" alt="image gluten-free">
+                            <div class="gluten-free">{{item}}</div>
+                        </div>
+                        {% elif item == 'Vegetarian'%}
+                        <div class="card-allergens-item">
+                            <img src="{{url_for('static', filename='img/vegetarian.png')}}" alt="image gluten-free">
+                            <div class="gluten-free">{{item}}</div>
+                        </div>
+                        {% elif item == 'No-pork' %}
+                        <div class="card-allergens-item">
+                            <img src="{{url_for('static', filename='img/pork.png')}}" alt="image gluten-free">
+                            <div class="gluten-free">{{item}}</div>
+                        </div>         
+                        {% endif %}
+                     {% endfor %}
+                    </div>
+                   
+                </div>
+            </div>
+        </div><!-- /.card-->
+        {% endfor %}
+    </div>
+    
+
+{% endblock %}
