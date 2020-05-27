@@ -258,8 +258,15 @@ div.card-content{
 }
 
 @media only screen and (max-width: 600px) {
+    input[type="text"].searchText::placeholder{
+    font-size: 1.3rem;
+    padding: 5px;
+    margin: 4px;
+    
+}
     .categories{
         display: none;
     }
+
 
 }
