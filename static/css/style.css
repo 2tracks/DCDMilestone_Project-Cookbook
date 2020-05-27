@@ -225,6 +225,16 @@ div.card-content{
     margin: 0.5rem;
 }
 
+/* Previous and Next button for all recipes (index)*/
+
+.pagination,
+.pagination a{
+    color: #9e9d24;
+}
+.material-icons{
+    vertical-align: middle;
+}
+
 /* Media queries */
 
 @media only screen and (min-width: 992px) {

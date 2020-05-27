@@ -5,9 +5,9 @@
 {% endblock title%}
 
 {% block content %}
-    
+   
     <div class="row">
-        {% for recipe in recipe_info %}
+        {% for recipe in recipe_all %}
         <div class="col s12 m6 l4">
             <div class="card">
                 <div class="card-image">
@@ -56,6 +56,18 @@
             </div>
         </div><!-- /.card-->
         {% endfor %}
+    </div>
+
+
+   <div class="row s12 pagination">
+        <div class="col s4 m4 l4">
+            <a {% if page|int > 1 %} href="{{url_for('index', page=page|int -1)}}" {% endif %}><i class="material-icons">chevron_left</i> Prev </a>
+        </div>
+        <div class="col s4 m4 l4 center page-text" ><p>Page No: {{page}}<br> There're {{recipes_count}} recipes and {{recipe_pages_total}} pages.</p></div>
+        <div class="col s4 m4 l4 right-align">   
+            <a {% if page|int != recipe_pages_total|int %} href="{{url_for('index', page=page|int +1)}}" {% endif %}> Next <i class="material-icons">chevron_right</i></a>    
+        </div>
+       
     </div>
     
 
