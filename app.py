@@ -46,7 +46,20 @@ def search_categories(get_category_name):
 
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template('add_recipe.html')
+    categories = mongo.db.categories.find()
+    allergen_free = mongo.db.allergen_free_label.find()
+    allergens = mongo.db.allergens.find()
+    skill_level = mongo.db.skill_level.find()
+
+    return render_template('add_recipe.html',categories=categories, allergen_free=allergen_free,
+                            allergens=allergens, skill_level=skill_level)
+
+
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
+    recipes = mongo.db.recipe_info
+    recipes.insert_one(request.form.to_dict())
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
