@@ -14,6 +14,7 @@ body{
 .yellow-text-color{
     color: #F0F4C3;
 }
+
 /* Navigation */
 
 nav{
@@ -235,6 +236,14 @@ div.card-content{
     vertical-align: middle;
 }
 
+/* styles for add recipe */
+
+.title-add-recipe{
+    font-family: 'Tangerine', cursive;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
 /* Media queries */
 
 @media only screen and (min-width: 992px) {
@@ -258,12 +267,11 @@ div.card-content{
 }
 
 @media only screen and (max-width: 600px) {
-    input[type="text"].searchText::placeholder{
-    font-size: 1.3rem;
-    padding: 5px;
-    margin: 4px;
-    
-}
+    input[type="text"].searchText::placeholder {
+        font-size: 1.2rem;
+        padding: 5px;
+        margin: 4px;
+    }
     .categories{
         display: none;
     }

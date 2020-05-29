@@ -18,7 +18,7 @@
             <a href="{{url_for('index')}}" class="brand-logo center red-text-color">My Cookbook</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons red-text-color">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a class="yellow-text-color" href="#">New Recipe</a></li>
+                <li><a class="yellow-text-color" href="{{url_for('add_recipe')}}">New Recipe</a></li>
             </ul>
             <ul class="left hide-on-med-and-down">
                 <li><a class="yellow-text-color" href="{{url_for('index')}}">Home</a></li>
@@ -34,7 +34,7 @@
             <li><a class="red-text-color" href="{{url_for('search_categories', get_category_name = 'Pasta')}}">Pasta</a></li>
             <li><a class="red-text-color" href="{{url_for('search_categories', get_category_name = 'Vegetables')}}">Vegetables</a></li>
             <li class="divider"></li>
-            <li><a class="lime-text text-darken-3" href="#">Add Recipe</a></li>
+            <li><a class="lime-text text-darken-3" href="{{url_for('add_recipe')}}">Add Recipe</a></li>
         </ul>
     </header>
 

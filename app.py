@@ -44,6 +44,11 @@ def search_categories(get_category_name):
     return render_template('search_categories.html', category=category)
 
 
+@app.route('/add_recipe')
+def add_recipe():
+    return render_template('add_recipe.html')
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get("PORT")), debug=True)
