@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    All Recipes
+    Add Recipes
 {% endblock title%}
 
 {% block content %}
@@ -49,7 +49,7 @@
             <div class="input-field col s12 m6">
                 <h6>Allergens</h6>
                 <select multiple id="allergen_type" name="allergen_type">
-                    <option value="" disabled selected>Choose Allergen(s):</option>
+                    <option value="" disabled selected>* Choose Allergen(s):</option>
                     {% for al in allergens %}
                     <option value="{{al.allergen_type}}">{{al.allergen_type}}</option>
                     {% endfor %} 

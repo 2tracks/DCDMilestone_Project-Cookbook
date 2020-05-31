@@ -11,7 +11,7 @@
         <div class="col s12 m6 l4">
             <div class="card">
                 <div class="card-image">
-                    <img src="{{recipe.recipe_img}}" alt="food"> 
+                    <a href="{{url_for('get_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.recipe_img}}" alt="food"></a>
                 </div>
                 <div class="card-title lime-text text-darken-4">{{recipe.recipe_name}}</div>
                 <div class="card-content">
@@ -35,17 +35,17 @@
                         </div>
                         {% elif item == 'Lactose-free' %}
                         <div class="card-allergens-item">
-                            <img src="{{url_for('static', filename='img/diet.png')}}" alt="image gluten-free">
+                            <img src="{{url_for('static', filename='img/diet.png')}}" alt="image lactose-free">
                             <div class="gluten-free">{{item}}</div>
                         </div>
                         {% elif item == 'Vegetarian'%}
                         <div class="card-allergens-item">
-                            <img src="{{url_for('static', filename='img/vegetarian.png')}}" alt="image gluten-free">
+                            <img src="{{url_for('static', filename='img/vegetarian.png')}}" alt="image vegetarian">
                             <div class="gluten-free">{{item}}</div>
                         </div>
                         {% elif item == 'No-pork' %}
                         <div class="card-allergens-item">
-                            <img src="{{url_for('static', filename='img/pork.png')}}" alt="image gluten-free">
+                            <img src="{{url_for('static', filename='img/pork.png')}}" alt="image no-pork">
                             <div class="gluten-free">{{item}}</div>
                         </div>         
                         {% endif %}

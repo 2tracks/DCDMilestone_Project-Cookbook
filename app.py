@@ -44,6 +44,12 @@ def search_categories(get_category_name):
     return render_template('search_categories.html', category=category)
 
 
+@app.route('/get_recipe/<recipe_id>')
+def get_recipe(recipe_id):
+    the_recipe = mongo.db.recipe_info.find_one({"_id": ObjectId(recipe_id)})
+    return render_template('get_recipe.html', recipe=the_recipe)
+
+
 @app.route('/add_recipe')
 def add_recipe():
     categories = mongo.db.categories.find()
