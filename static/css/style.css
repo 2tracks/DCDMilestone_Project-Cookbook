@@ -234,6 +234,7 @@ div.card-content{
 }
 .card-allergens-item{
     padding: 1rem 1rem 1rem 0;
+    margin-left: 7px;
 }
 
 /* Previous and Next button for all recipes (index)*/
