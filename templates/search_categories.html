@@ -15,11 +15,11 @@
                         <img src="{{recipe.recipe_img}}" alt="food">
                     </div>
                     <div class="card-title lime-text text-darken-4">{{recipe.recipe_name}}</div>
-                    <div class="card-content">
+                    <div class="card-content lime-text text-darken-4">
                         <div class="card-times">
                             <div class="time">
                                 <i class="fas fa-clock"></i>
-                                <div class="time">{{recipe.recipe_time}}</div>                
+                                <div class="time">{{recipe.recipe_prep_time|int + recipe.recipe_cook_time|int}}min</div>                
                             </div>
                             <div class="level">
                                 <img class="img-hat" src="{{url_for('static', filename='img/hat.png')}}" alt="hat">

@@ -199,7 +199,7 @@ h4{
     font-weight: 500!important;
     padding-left: 5px;
 }
-div.card-content{
+.card-content{
     padding: 0!important;
 }
 
@@ -211,9 +211,10 @@ div.card-content{
 .time{
     margin: 0.5rem;
 }
-.fas.fa-clock{
+.fa-clock{
     font-size: 24px;
     padding: 0.5rem;
+    color: #000;
 }
 .level{
     margin: 0.5rem;
