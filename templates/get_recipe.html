@@ -83,7 +83,7 @@
         <a href="#" class="waves-effect lime darken-3 waves-light btn-small"><i class="material-icons left">edit</i>Edit Recipe</a>
     </div>
     <div class="col s6 mt-2">
-        <a href="#" class="waves-effect lime darken-3 waves-light btn-small"><i class="material-icons left">delete</i>Delete Recipe</a>
+        <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="waves-effect lime darken-3 waves-light btn-small"><i class="material-icons left">delete</i>Delete Recipe</a>
     </div>
 </div>
 {% endblock %}
