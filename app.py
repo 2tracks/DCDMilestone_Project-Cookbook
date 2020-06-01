@@ -53,18 +53,36 @@ def get_recipe(recipe_id):
 @app.route('/add_recipe')
 def add_recipe():
     categories = mongo.db.categories.find()
-    allergen_free = mongo.db.allergen_free_label.find()
+    allergen_free_label = mongo.db.allergen_free_label.find()
     allergens = mongo.db.allergens.find()
     skill_level = mongo.db.skill_level.find()
 
-    return render_template('add_recipe.html',categories=categories, allergen_free=allergen_free,
+    return render_template('add_recipe.html',categories=categories, allergen_free_label=allergen_free_label,
                             allergens=allergens, skill_level=skill_level)
 
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipe_info
-    recipes.insert_one(request.form.to_dict())
+
+    new_recipe = {
+        'recipe_name': request.form.get('recipe_name'),
+        'recipe_img': request.form.get('recipe_img'),
+        'recipe_description': request.form.get('recipe_description'),
+        'category_name': request.form.get('category_name'),
+        'allergen_free_label': request.form.getlist('allergen_free_label'),
+        'allergen_type': request.form.getlist('allergen_type'),
+        'recipe_prep_time': request.form.get('recipe_prep_time'),
+        'recipe_cook_time': request.form.get('recipe_cook_time'),
+        'recipe_serves': request.form.get('recipe_serves'),
+        'recipe_level': request.form.get('recipe_level'),
+        'recipe_ingredients': request.form.getlist('recipe_ingredients'),
+        'recipe_method': request.form.get('recipe_method'),
+        'rating': request.form.get('rating'),
+        'date': request.form.get('date'),
+        'author_name': request.form.get('author_name')
+    }
+    recipes.insert_one(new_recipe)
     return redirect(url_for('index'))
 
 

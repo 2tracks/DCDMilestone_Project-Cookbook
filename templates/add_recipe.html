@@ -38,9 +38,9 @@
             
             <div class="input-field col s12 m6">
                 <h6>Allergen free label</h6>
-                <select multiple id="allergen_free_type" name="allergen_free_type" required>
+                <select multiple id="allergen_free_label" name="allergen_free_label" required>
                     <option value="" disabled selected>* Choose Label(s)</option>
-                    {% for label in allergen_free %}
+                    {% for label in allergen_free_label %}
                     <option value="{{label.allergen_free_type}}">{{label.allergen_free_type}}</option>
                     {% endfor %}  
                 </select>
@@ -81,12 +81,13 @@
                 </select>
             </div>
          
-            <div class="input-field col s12">
+            <div id="ingredients" class="input-field col s12">
                 <h6>Recipe Ingredients</h6>
                 <input placeholder="*Eq: 1/2 cup fresh orange juice" id="recipe_ingredients" name="recipe_ingredients" type="text" class="validate" required>
             </div>
+            
             <div class="col s12">
-                <a class="btn lime darken-3 waves-effect waves-light" id="add_ingredient">Add another ingredient<i class="material-icons">add</i></a>
+                <a class="btn lime darken-3 waves-effect waves-light" id="add-ingredient">Add ingredient<i class="material-icons">add</i></a>
             </div>
     
             <div class="input-field col s12">

@@ -37,17 +37,17 @@
                             {% elif item == 'Lactose-free' %}
                             <div class="card-allergens-item">
                                 <img src="{{url_for('static', filename='img/diet.png')}}" alt="image lactose-free">
-                                <div class="gluten-free">{{item}}</div>
+                                <div class="lactose-free">{{item}}</div>
                             </div>
                             {% elif item == 'Vegetarian'%}
                             <div class="card-allergens-item">
                                 <img src="{{url_for('static', filename='img/vegetarian.png')}}" alt="image vegetarian">
-                                <div class="gluten-free">{{item}}</div>
+                                <div class="vegetarian">{{item}}</div>
                             </div>
-                            {% elif item == 'No-pork' %}
+                            {% elif item == 'No-Pork' %}
                             <div class="card-allergens-item">
                                 <img src="{{url_for('static', filename='img/pork.png')}}" alt="image no-pork">
-                                <div class="gluten-free">{{item}}</div>
+                                <div class="no-pork">{{item}}</div>
                             </div>         
                             {% endif %}
                         {% endfor %}
