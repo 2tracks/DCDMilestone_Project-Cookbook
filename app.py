@@ -130,6 +130,19 @@ def delete_recipe(recipe_id):
     return redirect(url_for('index'))
 
 
+# Search keyword
+@app.route('/search_keyword', methods=['POST'])
+def search_keyword():
+    keyword = request.form.get('keyword')
+    recipes = mongo.db.recipe_info
+    recipes.create_index([('recipe_name', 'text'), ('recipe_ingredients', 'text'),
+                    ('recipe_method', 'text'), ('recipe_description', 'text'), ('recipe_category', 'text')])
+
+    recipes_search_result = recipes.find({'$text': {'$search': keyword}}).sort([('date', -1), ('_id', -1)])
+
+    return render_template('search_keyword.html', recipes_search_result=recipes_search_result, keyword=keyword)
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get("PORT")), debug=True)

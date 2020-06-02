@@ -41,12 +41,12 @@
     <div class="container">
         <!-- Searchbar -->
         <div class="searchbar">
-            <div class="search">
-                <input type="text" class="searchText" placeholder="Explore the Recipes...">
+            <form method="POST" action="{{url_for('search_keyword')}}" class="search">
+                <input type="text" id="keyword" class="searchText" name="keyword" placeholder="Explore the Recipes...">
                 <button type="submit" class="searchButton">
                     <i class="fas fa-search"></i>
                 </button>
-            </div>
+            </form>
         </div>
         <!-- Categories -->
         <div class="categories lime lighten-4">

@@ -73,7 +73,7 @@ input[type="text"].searchText{
     height: 20px;
     outline: none;
     color: #827717!important;
-    background-color: #f9fbe7;
+    background-color: #f9fbe7!important;
     box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
 }
 input[type="text"].searchText::placeholder{
