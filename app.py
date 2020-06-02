@@ -86,8 +86,20 @@ def insert_recipe():
     return redirect(url_for('index'))
 
 
-@app.route('/edit_recipe/<recipe_id>', methods=['POST'])
+@app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
+    the_recipe = mongo.db.recipe_info.find_one({"_id": ObjectId(recipe_id)})
+    categories = mongo.db.categories.find()
+    allergen_free_label = mongo.db.allergen_free_label.find()
+    allergens = mongo.db.allergens.find()
+    skill_level = mongo.db.skill_level.find()
+    return render_template('edit_recipe.html', recipe=the_recipe,
+                            categories=categories, allergen_free_label=allergen_free_label,
+                            allergens=allergens, skill_level=skill_level)
+
+
+@app.route('/update_recipe/<recipe_id>', methods=['POST'])
+def update_recipe(recipe_id):
     recipes = mongo.db.recipe_info
 
     recipes.update({'_id': ObjectId(recipe_id)},
