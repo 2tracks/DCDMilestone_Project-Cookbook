@@ -86,6 +86,32 @@ def insert_recipe():
     return redirect(url_for('index'))
 
 
+@app.route('/edit_recipe/<recipe_id>', methods=['POST'])
+def edit_recipe(recipe_id):
+    recipes = mongo.db.recipe_info
+
+    recipes.update({'_id': ObjectId(recipe_id)},
+    {
+        'recipe_name': request.form.get('recipe_name'),
+        'recipe_img': request.form.get('recipe_img'),
+        'recipe_description': request.form.get('recipe_description'),
+        'category_name': request.form.get('category_name'),
+        'allergen_free_label': request.form.getlist('allergen_free_label'),
+        'allergen_type': request.form.getlist('allergen_type'),
+        'recipe_prep_time': request.form.get('recipe_prep_time'),
+        'recipe_cook_time': request.form.get('recipe_cook_time'),
+        'recipe_serves': request.form.get('recipe_serves'),
+        'recipe_level': request.form.get('recipe_level'),
+        'recipe_ingredients': request.form.getlist('recipe_ingredients'),
+        'recipe_method': request.form.get('recipe_method'),
+        'rating': request.form.get('rating'),
+        'date': request.form.get('date'),
+        'author_name': request.form.get('author_name')
+    })
+    return redirect(url_for('index'))
+
+
+
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     mongo.db.recipe_info.remove({'_id': ObjectId(recipe_id)})
