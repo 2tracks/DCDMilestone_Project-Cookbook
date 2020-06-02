@@ -1,4 +1,4 @@
-{% extands 'base.html' %}
+{% extends 'base.html' %}
 
 {% block title %}
     Edit Recipes
@@ -6,6 +6,147 @@
 
 {% block content %}
 
+<h5 class="center red-text-color title-add-recipe">Edit Recipe</h5>
+  <div class="row red-text-color">
+    <form method="POST" action="{{url_for('update_recipe', recipe_id=recipe._id)}}" class="col s12" >
+        <div class="row">
+            <div class="input-field col s12">
+                <h6>Recipe Name</h6>
+                <input id="recipe_name" type="text" class="validate" name="recipe_name" placeholder="* Please type a Recipe Name." value="{{recipe.recipe_name}}" required>  
+            </div>
 
+            <div class="input-field col s12">
+                <h6>Upload your Recipe Image</h6>
+                <input id="recipe_img" type="text" class="validate" name="recipe_img" placeholder="* Type path. Eq: http://www.yourpic.com/pic.jpg" value="{{recipe.recipe_img}}" required>
+            </div>
+
+            <div class="input-field col s12">
+                <h6>Recipe Description</h6>
+                <input id="recipe_description" type="text" class="validate" name="recipe_description" placeholder="* Please type a short description" value="{{recipe.recipe_description}}" required>
+            </div> 
+
+            <div class="input-field col s12 add-category">
+                <h6>Category Name</h6>
+                <select id="category_name" name="category_name" required>
+                    <option value="" disabled selected>* Choose Category</option>
+                    {% for cat in categories %}
+                        {% if cat.category_name in recipe.category_name %}
+                        <option value="{{cat.category_name}}" selected>{{cat.category_name}}</option>
+                        {% else %}
+                        <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+
+            
+            <div class="input-field col s12">
+                <h6>Allergen free label</h6>
+                <select multiple id="allergen_free_label" name="allergen_free_label" required>
+                    <option value="" disabled selected>* Choose Label(s)</option>
+                    {% for label in allergen_free_label %}
+                        {% if label.allergen_free_type in recipe.allergen_free_label %}
+                        <option value="{{label.allergen_free_type}}" selected>{{label.allergen_free_type}}</option>
+                        {% else %}
+                        <option value="{{label.allergen_free_type}}">{{label.allergen_free_type}}</option>
+                        {% endif %}
+                    {% endfor %}  
+                </select>
+            </div>
+
+            <div class="input-field col s12">
+                <h6>Allergens</h6>
+                <select multiple id="allergen_type" name="allergen_type" required>
+                    <option value="" disabled selected>* Choose Allergen(s):</option>
+                    {% for al in allergens %}
+                        {% if al.allergen_type in recipe.allergen_type %}
+                        <option value="{{al.allergen_type}}" selected>{{al.allergen_type}}</option>
+                        {% else %}
+                        <option value="{{al.allergen_type}}" selected>{{al.allergen_type}}</option>
+                        {% endif %}
+                    {% endfor %} 
+                </select>
+            </div>
+
+            <div class="input-field col s12 m6">
+                <h6>Recipe Preparation Time</h6>
+                <input id="recipe_prep_time" type="text" class="validate" name="recipe_prep_time" placeholder="* Time to prepare in min. Eq: 20" value="{{recipe.recipe_prep_time}}" required>
+            </div>
+
+            <div class="input-field col s12 m6">
+                <h6>Recipe Cook Time</h6>
+                <input id="recipe_cook_time" type="text" class="validate" name="recipe_cook_time" placeholder="*Time to cook in min. Eq: 40" value="{{recipe.recipe_cook_time}}" required>
+            </div>
+
+            <div class="input-field col s12 m6">
+                <h6>Recipe Serves</h6>
+                <input id="recipe_serves" type="text" class="validate" name="recipe_serves" placeholder="* Eq: 4" value="{{recipe.recipe_serves}}" required>
+            </div>
+
+            <div class="input-field col s12 m6">
+                <h6>Recipe Difficulty</h6>
+                <select id="recipe_level" name="recipe_level" required>
+                    <option value="" disabled selected>* Choose Difficulty Level</option>
+                    {% for le in skill_level %}
+                        {% if le.level in recipe.recipe_level %}
+                        <option value="{{le.level}}" selected>{{le.level}}</option>
+                        {% else %}
+                        <option value="{{le.level}}">{{le.level}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+         
+            <div id="ingredients" class="input-field col s12">
+                <h6>Recipe Ingredients</h6>
+                {% for item in recipe.recipe_ingredients %}
+                    {% if item == recipe.recipe_ingredients[0] %}
+                    <input placeholder="*Eq: 1/2 cup fresh orange juice" id="recipe_ingredients" name="recipe_ingredients" type="text" class="validate" value="{{item}}" required>
+                    {% else %}
+                    <div id="new-ingredient">
+                        <div class="input-field col s10">
+                            <input type="text" name="recipe_ingredients" class="validate" placeholder="*Eq: 1/2 cup fresh orange juice" value="{{item}}" required>
+                        </div>
+                        <div class="col s2">
+                            <a class="btn-floating lime darken-4 waves-effect waves-light" id="del-ingredient"><i class="material-icons">delete_forever</i></a>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="col s12">
+                <a class="btn lime darken-3 waves-effect waves-light" id="add-ingredient">Add ingredient<i class="material-icons">add</i></a>
+            </div>
+             
+             
+            <div class="input-field col s12">
+                <h6>Recipe Method</h6>
+                <input placeholder="* Preheat the oven..." id="recipe_method" name="recipe_method" type="text" class="validate" value="{{recipe.recipe_method}}" required>
+            </div>             
+        
+            <div class="input-field col s12 m6">
+                <h6>Recipe Stars</h6>
+                <input id="rating" type="text" class="validate" name="rating" placeholder="* How many stars? Eq: ***** " value="{{recipe.rating}}" required>  
+            </div>
+
+            <div class="input-field col s12 m6">
+                <h6>Recipe Date</h6>
+                <input id="date" type="text" class="validate" name="date" placeholder="* Please type Date like 2020/05/11." value="{{recipe.date}}" required>  
+            </div>
+
+            <div class="input-field col s12">
+                <h6>Author Name</h6>
+                <input id="author_name" type="text" class="validate" name="author_name" placeholder="* Please type the name of the author." value="{{recipe.author_name}}" required>  
+            </div>
+            
+            <div class="col s12 center">
+                <button class="center btn lime darken-3 waves-effect waves-light" type="submit">Update Recipe
+                    <i class="material-icons right">playlist_add</i>
+                </button>
+            </div>
+      </div>
+    </form>
+  </div>
 
 {% endblock %}

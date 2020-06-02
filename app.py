@@ -16,7 +16,7 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 
 mongo = PyMongo(app)
 
-
+# Get landing page
 @app.route('/')
 @app.route('/index')
 @app.route('/index/<int:page>')
@@ -43,13 +43,13 @@ def search_categories(get_category_name):
     category = mongo.db.recipe_info.find({'category_name': get_category_name})
     return render_template('search_categories.html', category=category)
 
-
+# Get single Recipe
 @app.route('/get_recipe/<recipe_id>')
 def get_recipe(recipe_id):
     the_recipe = mongo.db.recipe_info.find_one({"_id": ObjectId(recipe_id)})
     return render_template('get_recipe.html', recipe=the_recipe)
 
-
+# Add Recipe
 @app.route('/add_recipe')
 def add_recipe():
     categories = mongo.db.categories.find()
@@ -85,10 +85,10 @@ def insert_recipe():
     recipes.insert_one(new_recipe)
     return redirect(url_for('index'))
 
-
+# Edit Recipe
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
-    the_recipe = mongo.db.recipe_info.find_one({"_id": ObjectId(recipe_id)})
+    the_recipe = mongo.db.recipe_info.find_one({'_id': ObjectId(recipe_id)})
     categories = mongo.db.categories.find()
     allergen_free_label = mongo.db.allergen_free_label.find()
     allergens = mongo.db.allergens.find()
@@ -123,7 +123,7 @@ def update_recipe(recipe_id):
     return redirect(url_for('index'))
 
 
-
+# Delete Recipe
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     mongo.db.recipe_info.remove({'_id': ObjectId(recipe_id)})
