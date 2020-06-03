@@ -39,10 +39,22 @@ def index(page=1):
                             recipe_pages_total=recipe_pages_total)
 
 # Search by categories
-@app.route('/search_categories/<get_category_name>')
-def search_categories(get_category_name):
+@app.route('/search_categories/<get_category_name>/<int:page>')
+def search_categories(get_category_name, page):
     category = mongo.db.recipe_info.find({'category_name': get_category_name})
-    return render_template('search_categories.html', category=category)
+
+    recipes_count = category.count()
+
+    limit = 6
+    offset = int((page)-1)*6
+
+    recipe_pages_total = math.ceil(recipes_count/limit)
+
+    recipe_page = category.sort([('_id', -1)]).skip(offset).limit(limit)
+
+    return render_template('search_categories.html', category=category, page=page,
+                             recipe_page=recipe_page, recipes_count=recipes_count,
+                            recipe_pages_total=recipe_pages_total)
 
 # Get single Recipe
 @app.route('/get_recipe/<recipe_id>')
