@@ -70,7 +70,7 @@ input[type="text"].searchText{
     border-right: none!important;
     border-radius: 1px 0 0 2px;
     padding: 10px;
-    height: 20px;
+    height: 25px;
     outline: none;
     color: #827717!important;
     background-color: #f9fbe7!important;
@@ -86,12 +86,15 @@ input[type="text"].searchText::placeholder{
     width: 10%;
     border: 1px solid #827717!important;
     border-radius: 0 2px 2px 0;
-    height: 42px;
+    height: 47px;
     outline: none;
     color: #f9fbe7!important;
     background-color:  #827717;
     box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
     cursor: pointer;
+}
+.searchButton:focus{
+    background-color:  #9e9d24;
 }
 
 /* Categories */
