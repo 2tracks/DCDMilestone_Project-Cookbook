@@ -1,7 +1,7 @@
 # My Cookbook - Data Centric Milestone Project 3 for Code Institute
 In this project I chose to make a online cookbook 'My Cookbook' it's designed to enable 
 user to store recipes online so whenever you need an idea for cooking just grap your
-best recipes wherever you are.
+best recipes wherever you are. The recipes are dummy content for testing and time purpose. 
 
 ## UX
 * As a user you must understand what the site does
