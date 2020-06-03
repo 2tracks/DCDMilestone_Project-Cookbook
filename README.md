@@ -1,6 +1,6 @@
 # My Cookbook - Data Centric Milestone Project 3 for Code Institute
-In this project I choose to make a online cookbook 'My Cookbook' it's designed to enable 
-user to store their recipes online so whenever you need an idea for cooking just grap your
+In this project I chose to make a online cookbook 'My Cookbook' it's designed to enable 
+user to store recipes online so whenever you need an idea for cooking just grap your
 best recipes wherever you are.
 
 ## UX
@@ -23,8 +23,9 @@ This site is made with Flask, Python3, PyMongo and MongoDB.<br>
 I chose [Materializecss](https://materializecss.com/) as the CSS Framework.<br>
 I designed the site in Adobe XD, I chose XD because of the ability the choose from various screensizes
 and I like the ability to design in color because it fuels creativity.<br>
+I used a Chrome plugin 'NoCoffee' to make sure the site works for color blind people<br>
 
-* You can find my databse schema for the project here: [Initial design](static/design/Database_Schema.pdf)
+* You can find my database schema for the project here: [Initial design](static/design/Database_Schema.pdf)
 * My initial design for the site can be found here:[Initial design](static/design/Initial_design.png)
 
 ## Features
@@ -45,7 +46,7 @@ edit that recipe or delete it.<br>
 
 Enable different user accounts adding authentication.<br>
 When authentication is in place user will be able to upload files to the database.<br>
-A user will be able to print a shoopinglist.<br>
+A user will be able to print a shopinglist.<br>
 
 ## Technologies Used
 
@@ -78,6 +79,7 @@ index page
 - Finaly I made sure the social media buttons all go to the right link in a seperate browser window.
 - The category and the social links are exteded by the base.html.
 - I clicked on the prev and next button to ensure the pages work correctly.
+- I use 'NoCofffee' and 'Contrast', chrome plugin to make sure color blind people can see the site properly.
 
 get_recipe page 
 
@@ -126,7 +128,7 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI').
 
 * [Docs for Flask](https://flask.palletsprojects.com/en/1.1.x/quickstart/)
 * [MongoDB Atlas docs](https://docs.atlas.mongodb.com/getting-started/)
-* [Julian Nash for everything flask and MogoDB](https://www.youtube.com/channel/UC5_oFcBFlawLcFCBmU7oNZA)
+* [Julian Nash for everything Flask and MogoDB](https://www.youtube.com/channel/UC5_oFcBFlawLcFCBmU7oNZA)
 * [I used that link when I was trying to setup pagination for search Keyword](https://stackoverflow.com/questions/42018603/handling-get-and-post-in-same-flask-view)
 * [I used Stackoverflow to search for indexing MongoDB](https://kb.objectrocket.com/mongo-db/how-to-create-an-index-for-a-mongodb-collection-in-python-371)
 * [Stackoverflow good article to insert data in MogoDB as I was searching for to_dict() didn't use it but still a good hint](https://stackoverflow.com/questions/51992901/capture-values-from-multiple-select-form-and-post-via-flask)
