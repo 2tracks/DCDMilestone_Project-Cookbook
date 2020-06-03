@@ -8,7 +8,7 @@
    
     <div class="row">
         {% for recipe in recipe_all %}
-        <div class="col s12 m6 xl4">
+         <div class="col s12 m6">
             <a href="{{url_for('get_recipe', recipe_id=recipe._id)}}">
                 <div class="card hoverable">
                     <div class="card-image">
@@ -41,13 +41,13 @@
                             </div>
                             {% elif item == 'Vegetarian'%}
                             <div class="card-allergens-item">
-                                <img src="{{url_for('static', filename='img/vegetarian.png')}}" alt="image vegetarian">
+                                <img src="{{url_for('static', filename='img/vegetarian.png')}}" alt="image vegetarain">
                                 <div class="vegetarian">{{item}}</div>
                             </div>
                             {% elif item == 'No-Pork' %}
                             <div class="card-allergens-item">
                                 <img src="{{url_for('static', filename='img/pork.png')}}" alt="image no-pork">
-                                <div class="no-pork">{{item}}</div>
+                                <div class="n-pork">{{item}}</div>
                             </div>         
                             {% endif %}
                         {% endfor %}
