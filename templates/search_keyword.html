@@ -5,11 +5,9 @@
 {% endblock title%}
 
 {% block content %}
-    
-
     <div class="row">
         <div class="col s12 red-text-color">
-            <h5>Recipes contain: <strong>{{keyword}}</strong></h5>
+            <h5>Your result for recipes that contain: <strong>{{keyword}}</strong></h5>
         </div>
     
         {% for recipe in recipes_search_result %}
@@ -65,7 +63,16 @@
         {% endfor %}
     </div>
 
-
+    <div class="row s12 pagination">
+        <div class="col s4 m4 l4">
+            <a {% if page|int > 1 %} href="{{url_for('search_keyword',keyword=keyword, page=page|int -1)}}" {% endif %}><i class="material-icons">chevron_left</i> Prev </a>
+        </div>
+        <div class="col s4 m4 l4 center" ><span>Your on page {{page}} of {{recipe_pages_total}}</span></div>
+        <div class="col s4 m4 l4 right-align">   
+            <a {% if page|int != recipe_pages_total|int %} href="{{url_for('search_keyword',keyword=keyword, page=page|int +1)}}" {% endif %}> Next <i class="material-icons">chevron_right</i></a>    
+        </div>
+       
+    </div>
    
 
 {% endblock %}

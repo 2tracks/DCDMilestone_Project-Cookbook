@@ -1,4 +1,5 @@
-import os, math
+import os
+import math
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -37,7 +38,7 @@ def index(page=1):
                             page=page, recipe_page=recipe_page, recipes_count=recipes_count,
                             recipe_pages_total=recipe_pages_total)
 
-
+# Search by categories
 @app.route('/search_categories/<get_category_name>')
 def search_categories(get_category_name):
     category = mongo.db.recipe_info.find({'category_name': get_category_name})
@@ -131,16 +132,29 @@ def delete_recipe(recipe_id):
 
 
 # Search keyword
-@app.route('/search_keyword', methods=['POST'])
-def search_keyword():
+@app.route('/keyword_result', methods=['POST'])
+def keyword_result():
     keyword = request.form.get('keyword')
-    recipes = mongo.db.recipe_info
-    recipes.create_index([('recipe_name', 'text'), ('recipe_ingredients', 'text'),
-                    ('recipe_method', 'text'), ('recipe_description', 'text'), ('recipe_category', 'text')])
+    return redirect(url_for('search_keyword', keyword=keyword, page=1))
 
-    recipes_search_result = recipes.find({'$text': {'$search': keyword}}).sort([('date', -1), ('_id', -1)])
 
-    return render_template('search_keyword.html', recipes_search_result=recipes_search_result, keyword=keyword)
+@app.route('/search_keyword/<keyword>/<int:page>', methods=['GET'])
+def search_keyword(keyword, page):
+        recipes = mongo.db.recipe_info
+        recipes.create_index([('recipe_name', 'text'), ('recipe_ingredients', 'text'),
+                        ('recipe_method', 'text'), ('recipe_description', 'text'), ('recipe_category', 'text')])
+
+        recipes_search_result = recipes.find({'$text': {'$search': keyword}}).sort([('date', -1), ('_id', -1)])
+        recipes_count = recipes_search_result.count()
+        limit = 6
+        offset = int((page)-1)*6
+
+        recipe_pages_total = math.ceil(recipes_count/limit)
+        recipe_page = recipes_search_result.sort([('_id', -1)]).skip(offset).limit(limit)
+
+        return render_template('search_keyword.html', recipes_search_result=recipes_search_result, keyword=keyword,
+                                page=page, recipe_page=recipe_page, recipes_count=recipes_count,
+                                recipe_pages_total=recipe_pages_total)
 
 
 if __name__ == '__main__':
